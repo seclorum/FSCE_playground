@@ -1,4 +1,7 @@
 // 
+// Basic trafficlight code
+// RED/AMBER/GREEN lights
+// 
 // PRODUINO: Arduino Project code
 // MAKE_CBIN: C bin file for simulation
 //
@@ -92,13 +95,22 @@ typedef enum {
 TrafficLightState current_state = TRAFFIC_STOP;
 int state_timer = 0;
 
-// Function prototypes
+
+// Function prototypes - declared in advance:
+
+// Updates the current state of the machine
 void state_update(void);
+// sets the lights according to the given state
 void set_lights(TrafficLightState state);
+
+
+
+// Function implementations:
 
 // Main update function for the state machine
 void state_update() {
-    // Advance state machine based on current state and timer
+
+    // Advances the state machine based on current state and time values
     switch (current_state) {
         case TRAFFIC_STOP:
             if (++state_timer >= STOP_TIME) {
