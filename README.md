@@ -13,7 +13,7 @@ We will demonstrate how to write C code that will produce:
 
 Two areas of the project will function in parallel, the Arduino school project code, and the 'test/hack/experiment' playground in the C-based binary environment.
 
-This will provide build scaffolding to construct other things.
+This will provide cross-platform build scaffolding methods and other tooling for us to construct other things.
 
 ## Projects:
 
