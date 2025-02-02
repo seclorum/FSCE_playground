@@ -38,6 +38,13 @@ function Deque:isEmpty()
     return self.size == 0
 end
 
+function Deque:dump(note)
+    for _, v in ipairs(self.items) do
+        io.write("note: " .. v .. "\n")
+    end
+    return false
+end
+
 function Deque:contains(note)
     for _, v in ipairs(self.items) do
         if v == note then return true end
@@ -137,4 +144,6 @@ noteOff(dq, 49)
 for _ = 1, 20 do
     random_note_event(dq)
 end
+
+dq:dump()
 
