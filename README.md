@@ -1,6 +1,6 @@
 # FSCE: fun and simple coding examples..
 
-This is a simple repo to demonstrate some fundamental concepts.
+This is a simple repo to demonstrate some fundamental concepts, and a simple way for a Dad to get involved in his teenage kids' homework.  ;)
 
 In our scenario, there is a) an Arduino-based project with workshop code from school, and b) Darwin/Linux-based workstations to use for other purposes.
 
