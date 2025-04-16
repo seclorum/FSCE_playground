@@ -143,5 +143,7 @@ A directory containing a series of experiments resulting in a Cooperative Multit
 			 - Task 1 | Prio 2 | Group 1 | Susp 0 | WT: 3000
 			 - Task 2 | Prio 1 | Group 1 | Susp 0 | WT: 1000
 
+# bytebeater
 
+An experimental playground for byebeat synthesis techniques.
 
