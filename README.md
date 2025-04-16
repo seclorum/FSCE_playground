@@ -110,3 +110,23 @@ A directory containing a series of experiments resulting in a Cooperative Multit
 		You can enter commands by typing them and pressing Enter.
 
 		The system processes the input and prints any relevant output (e.g., the state of tasks or confirmation of suspension/resumption).
+
+	Example CLI Session:
+
+			[CLI] > suspend 1
+			[Log] Task 1 suspended.
+			[CLI] > dump
+			[Snapshot] Task States
+			 - Task 0 | Prio 3 | Group 0 | Susp 0 | WT: 5000
+			 - Task 1 | Prio 2 | Group 1 | Susp 1 | WT: 3000
+			 - Task 2 | Prio 1 | Group 1 | Susp 0 | WT: 1000
+			[CLI] > resume 1
+			[Log] Task 1 resumed.
+			[CLI] > dump
+			[Snapshot] Task States
+			 - Task 0 | Prio 3 | Group 0 | Susp 0 | WT: 5000
+			 - Task 1 | Prio 2 | Group 1 | Susp 0 | WT: 3000
+			 - Task 2 | Prio 1 | Group 1 | Susp 0 | WT: 1000
+
+
+
