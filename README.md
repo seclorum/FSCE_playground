@@ -31,3 +31,82 @@ A simple implementation of a synth voice-assignment tracker, intended for use in
 'make test' to see two test cases, first with fixed note assignments and then with random assignments.  Run voice_tracker manually to have a non-sorted test output.
 
 There's a .lua implementation too, just for fun
+
+# hc_scheduler/
+
+A directory containing a series of experiments resulting in a Cooperative Multitasking System in C.
+
+🔍 Examined a coroutine-style macro
+	Analyzed the hc_task_yield macro using __LINE__ and case labels.
+	Explained how it enables coroutine-style task pausing/resuming without threads.
+
+🧪 Created a basic test program
+	Made a simple example called testhc.c using a single coroutine task.
+	Demonstrated how hc_task_yield and hc_task_delay work with a scheduler loop.
+
+⚙️ Evolved into a micro cooperative scheduler
+	Added support for multiple tasks.
+	Introduced a simple round-robin scheduler with delay management.
+	
+📈 Advanced to a more capable system
+	Added:
+		Task priorities
+		Task groups/tags for suspend/resume
+		Alarms/timers
+		Event flags
+		Task restart/reset functionality
+
+🔒 Focused on embedded-friendliness
+	Kept everything in a single .c file.
+	No dynamic allocation or OS dependencies.
+	Built-in support for:
+	Cooperative multitasking
+	Debugging
+	Logging
+
+🐞 Caught and fixed a macro bug
+	Fixed the case-not-in-switch compile error by wrapping coroutine logic in switch (task->state) { ... }.
+
+📦 Finalized the full system (mega_hc.c)
+	Created a robust single-file multitasking framework with:
+		Task priority sorting
+		Group suspend/resume
+		Watchdog timers for stuck tasks
+		CLI debug shell (basic)
+		Coroutine-based task behavior
+		Snapshot and restart logic
+		Included heavy commenting and usage examples for clarity.
+
+# Using the CLI in mega_hc.c
+	The CLI in the program is a basic interface that allows you to interact with the multitasking system during runtime. Here's how to use it:
+
+	How the CLI Works:
+
+	Every 5 seconds, the program will prompt you for input.
+	You can type a command, and the system will execute it.
+
+	Available Commands:
+
+		dump:
+			Description: Displays the current state of all tasks in the system.
+			Example:
+			> dump
+			Output: Lists each active task, its priority, group, suspension status, and wake-up time.
+
+		suspend <group>:
+			Description: Suspends all tasks in the specified group, preventing them from running.
+			Example:
+			> suspend 1
+			Effect: Suspends tasks in Group 1 (you can change the group number to target different groups).
+
+		resume <group>:
+			Description: Resumes tasks in the specified group, allowing them to run again.
+			Example:
+			> resume 1
+			Effect: Resumes tasks in Group 1 (tasks will continue based on their wake-up time and priority).
+
+	How to Input Commands:
+
+		You can enter commands by typing them and pressing Enter.
+
+		The system processes the input and prints any relevant output (e.g., the state of tasks or confirmation of suspension/resumption).
