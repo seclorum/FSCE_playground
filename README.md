@@ -111,6 +111,12 @@ A directory containing a series of experiments resulting in a Cooperative Multit
 
 		The system processes the input and prints any relevant output (e.g., the state of tasks or confirmation of suspension/resumption).
 
+	Notes:
+
+		The CLI waits for input every 5 seconds, so it won’t block the program's execution.
+
+		Task suspension and resumption only affect tasks within the same group, making it easy to manage related tasks.
+
 	Example CLI Session:
 
 			[CLI] > suspend 1
