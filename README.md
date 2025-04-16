@@ -32,24 +32,29 @@ A simple implementation of a synth voice-assignment tracker, intended for use in
 
 There's a .lua implementation too, just for fun
 
-# hc_scheduler/
+# megaScheduler/
 
 A directory containing a series of experiments resulting in a Cooperative Multitasking System in C.
 
 🔍 Examined a coroutine-style macro
+
 	Analyzed the hc_task_yield macro using __LINE__ and case labels.
 	Explained how it enables coroutine-style task pausing/resuming without threads.
 
 🧪 Created a basic test program
-	Made a simple example called testhc.c using a single coroutine task.
+
+	Made a simple example called test_hc.c using a single coroutine task.
 	Demonstrated how hc_task_yield and hc_task_delay work with a scheduler loop.
 
 ⚙️ Evolved into a micro cooperative scheduler
+
 	Added support for multiple tasks.
 	Introduced a simple round-robin scheduler with delay management.
 	
 📈 Advanced to a more capable system
+
 	Added:
+
 		Task priorities
 		Task groups/tags for suspend/resume
 		Alarms/timers
@@ -57,6 +62,7 @@ A directory containing a series of experiments resulting in a Cooperative Multit
 		Task restart/reset functionality
 
 🔒 Focused on embedded-friendliness
+
 	Kept everything in a single .c file.
 	No dynamic allocation or OS dependencies.
 	Built-in support for:
@@ -65,10 +71,13 @@ A directory containing a series of experiments resulting in a Cooperative Multit
 	Logging
 
 🐞 Caught and fixed a macro bug
+
 	Fixed the case-not-in-switch compile error by wrapping coroutine logic in switch (task->state) { ... }.
 
 📦 Finalized the full system (mega_hc.c)
+
 	Created a robust single-file multitasking framework with:
+
 		Task priority sorting
 		Group suspend/resume
 		Watchdog timers for stuck tasks
